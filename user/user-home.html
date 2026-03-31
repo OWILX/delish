@@ -12,47 +12,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- TOP HEADER -->
-    <header>
-        <div class="top-nav">
-            <!-- Logo -->
-            <div class="logo">
-              <img src="../assets/images/logo-512.png" alt="Delish Logo" class="app-logo" width="40" height="40">
-            </div>
-            
-            <!-- Search Bar -->
-            <div class="search-bar">
-                🔎
-                <input type="text" placeholder="Search restaurants or dishes..." id="search-input">
-            </div>
-            
-            <!-- Location -->
-            <div class="location-pill">
-                📍 Abuja, FCT
-            </div>
-            
-            <!-- Header Icons -->
-            <div class="header-icons">
-                <!-- Cart (hidden on mobile) -->
-                <div class="cart-icon" style="font-size: 26px; cursor: pointer; position: relative;">
-                    🛒
-                    <span style="position: absolute; top: -6px; right: -6px; background: #F4B400; color: #2C2C2C; font-size: 10px; font-family: var(--font-mono); width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">3</span>
-                </div>
-                
-                <!-- Notification Bell (always visible) -->
-                <div class="notification-btn">
-                    🛎️
-                    <span class="badge">2</span>
-                </div>
-                
-                <!-- User Avatar (hidden on mobile) -->
-                <div class="avatar" style="width: 36px; height: 36px; background: #ddd; border-radius: 50%; overflow: hidden; cursor: pointer;">
-                    👤
-                </div>
-            </div>
-        </div>
-    </header>
+<header class="header">
+  <div class="top-nav">
 
+    <!-- Logo -->
+    <div class="logo">
+      <img src="../assets/images/logo-512.png" alt="Delish Logo" class="app-logo">
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <span class="search-icon">🔎</span>
+      <input 
+        type="text" 
+        placeholder="Search restaurants or dishes..." 
+        id="search-input"
+      >
+    </div>
+
+    <!-- Location -->
+    <div class="location-pill">
+      <span class="location-icon">📍</span>
+      <span>Abuja, FCT</span>
+    </div>
+
+    <!-- Header Icons -->
+    <div class="header-icons">
+
+      <!-- Cart -->
+      <button class="icon-btn cart-btn" aria-label="Cart">
+        🛒
+        <span class="badge">3</span>
+      </button>
+
+      <!-- Notifications -->
+      <button class="icon-btn notification-btn" aria-label="Notifications">
+        🛎️
+        <span class="badge">2</span>
+      </button>
+
+      <!-- Avatar -->
+      <div class="avatar" title="Profile">
+        👤
+      </div>
+
+    </div>
+  </div>
+</header>
+    
     <main class="container">
         
         <!-- HERO / WELCOME BANNER -->

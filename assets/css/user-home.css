@@ -1,19 +1,20 @@
 @import "style.css";
 
 body {
-    font-family: var(--font-primary);
-    background-color: var(--soft-cream);
-    color: var(--deep-charcoal);
-    line-height: 1.5;
     padding-bottom: 70px; /* Space for mobile bottom nav */
 }
 
 /* HEADER */
 header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-2) var(--spacing-3);
     position: sticky;
     top: 0;
     background-color: var(--deep-charcoal);
-    color: white;
+    border-bottom: 1px solid var(--gray-200);
+    color: var(--white);
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }

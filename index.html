@@ -32,424 +32,105 @@
 </head>
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="container flex justify-between items-center">
-            
-            <!-- Logo -->
-            <div class="logo">
-                🍲 Delish
-            </div>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#" onclick="navigateTo('home')" class="nav-link">Home</a>
-                <a href="#" onclick="navigateTo('restaurants')" class="nav-link">Restaurants</a>
-                <a href="#" onclick="navigateTo('orders')" class="nav-link">Track Order</a>
-                <a href="#" onclick="navigateTo('support')" class="nav-link">Support</a>
-            </div>
-            
-            <!-- Right side actions -->
-            <div class="flex items-center gap-4">
-                
-                <!-- Location -->
-                <div class="flex items-center gap-2 bg-soft-cream text-deep-charcoal px-4 py-2 rounded-2xl text-sm font-medium">
-                    📍 Abuja, FCT
-                    <span class="text-warm-amber cursor-pointer hover:text-amber-600">Change</span>
-                </div>
-                
-                <!-- Cart -->
-                <button onclick="showCart()" class="btn-icon relative">
-                    🛒
-                    <span id="cart-count" class="absolute -top-1 -right-1 bg-warm-amber text-deep-charcoal text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">3</span>
-                </button>
-                
-                <!-- Role Switcher (Demo) -->
-                <div class="relative group">
-                    <button onclick="toggleRoleMenu()" class="btn btn-secondary btn-small flex items-center gap-2">
-                        👤 Customer
-                        <span class="text-xs">▼</span>
-                    </button>
-                    
-                    <!-- Role dropdown -->
-                    <div id="role-menu" class="hidden absolute right-0 mt-2 w-64 bg-soft-cream shadow-xl rounded-3xl py-3 z-50 border border-muted-sage">
-                        <a onclick="switchRole('customer')" class="flex px-6 py-3 hover:bg-warm-amber hover:text-deep-charcoal items-center gap-3">
-                            👤 Login as Customer
-                        </a>
-                        <a onclick="switchRole('seller')" class="flex px-6 py-3 hover:bg-warm-amber hover:text-deep-charcoal items-center gap-3">
-                            👨‍🍳 Login as Restaurant Owner
-                        </a>
-                        <a onclick="switchRole('moderator')" class="flex px-6 py-3 hover:bg-warm-amber hover:text-deep-charcoal items-center gap-3">
-                            🛡️ Login as Moderator
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Mobile menu button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden btn-icon">
-                    ☰
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-deep-charcoal text-soft-cream py-4">
-            <div class="container flex flex-col gap-4">
-                <a href="#" onclick="navigateTo('home');toggleMobileMenu()" class="nav-link px-4 py-2">Home</a>
-                <a href="#" onclick="navigateTo('restaurants');toggleMobileMenu()" class="nav-link px-4 py-2">Restaurants</a>
-                <a href="#" onclick="navigateTo('orders');toggleMobileMenu()" class="nav-link px-4 py-2">Track Order</a>
-                <a href="#" onclick="navigateTo('support');toggleMobileMenu()" class="nav-link px-4 py-2">Support</a>
-            </div>
-        </div>
-    </nav>
+<nav class="navbar">
+  <div class="container">
 
-    <!-- HERO SECTION -->
-    <section class="hero text-soft-cream">
-        <div class="container">
-            <div class="hero-content">
-                <div class="tag food-badge mb-6">
-                    🍲 Now delivering in Abuja
-                </div>
-                
-                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
-                    Your favorite local food,<br>
-                    delivered <span class="text-warm-amber">hot & fast</span>
-                </h1>
-                
-                <p class="text-xl mb-8 text-soft-cream/90">
-                    Order from the best restaurants in Abuja. 
-                    Real-time tracking • Fresh Nigerian meals • 30-min delivery
-                </p>
-                
-                <!-- Search Bar -->
-                <div class="flex bg-soft-cream text-deep-charcoal rounded-3xl p-2 shadow-2xl max-w-md">
-                    <input 
-                        id="hero-search"
-                        type="text" 
-                        placeholder="Search restaurants or dishes... (e.g. jollof, suya)"
-                        class="input flex-1 border-0 shadow-none focus:ring-0 text-lg"
-                        onkeypress="if(event.key==='Enter') performSearch()">
-                    <button onclick="performSearch()" class="btn btn-primary px-10">
-                        Search
-                    </button>
-                </div>
-                
-                <div class="flex items-center gap-6 mt-10">
-                    <div class="flex -space-x-4">
-                        <div class="w-8 h-8 bg-muted-sage rounded-2xl flex items-center justify-center text-xl border-2 border-soft-cream">🍛</div>
-                        <div class="w-8 h-8 bg-warm-amber rounded-2xl flex items-center justify-center text-xl border-2 border-soft-cream">🥘</div>
-                        <div class="w-8 h-8 bg-deep-charcoal rounded-2xl flex items-center justify-center text-xl border-2 border-soft-cream">🍖</div>
-                    </div>
-                    <p class="text-soft-cream/80 font-medium">
-                        248 restaurants open right now in Abuja
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Logo (placeholder) -->
+    <a href="#" onclick="navigateTo('home')" class="logo">
+      🍲 Delish
+      <!-- NOTE: Replace the emoji + text with real logo later -->
+      <!-- Example: <img src="assets/images/logo.png" alt="Delish" height="42"> -->
+    </a>
 
-    <!-- CATEGORIES -->
-    <section class="section bg-white">
-        <div class="container">
-            <h2 class="text-3xl font-semibold mb-8">What are you craving today?</h2>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                <div onclick="filterByCategory('nigerian')" class="card flex flex-col items-center justify-center text-center hover:scale-105 cursor-pointer py-8">
-                    <div class="text-5xl mb-3">🍲</div>
-                    <h4 class="font-semibold">Nigerian Local</h4>
-                    <p class="text-xs text-gray">Jollof • Egusi • Pounded yam</p>
-                </div>
-                <div onclick="filterByCategory('grill')" class="card flex flex-col items-center justify-center text-center hover:scale-105 cursor-pointer py-8">
-                    <div class="text-5xl mb-3">🍖</div>
-                    <h4 class="font-semibold">Grills & Suya</h4>
-                    <p class="text-xs text-gray">Suya • Kilishi • Fish</p>
-                </div>
-                <div onclick="filterByCategory('rice')" class="card flex flex-col items-center justify-center text-center hover:scale-105 cursor-pointer py-8">
-                    <div class="text-5xl mb-3">🍚</div>
-                    <h4 class="font-semibold">Rice & Stew</h4>
-                    <p class="text-xs text-gray">Fried rice • Ofada</p>
-                </div>
-                <div onclick="filterByCategory('swallow')" class="card flex flex-col items-center justify-center text-center hover:scale-105 cursor-pointer py-8">
-                    <div class="text-5xl mb-3">🥬</div>
-                    <h4 class="font-semibold">Swallows</h4>
-                    <p class="text-xs text-gray">Amala • Eba • Fufu</p>
-                </div>
-                <div onclick="filterByCategory('fastfood')" class="card flex flex-col items-center justify-center text-center hover:scale-105 cursor-pointer py-8">
-                    <div class="text-5xl mb-3">🍔</div>
-                    <h4 class="font-semibold">Fast Food</h4>
-                    <p class="text-xs text-gray">Shawarma • Pizza • Burgers</p>
-                </div>
-                <div onclick="filterByCategory('healthy')" class="card flex flex-col items-center justify-center text-center hover:scale-105 cursor-pointer py-8">
-                    <div class="text-5xl mb-3">🥗</div>
-                    <h4 class="font-semibold">Healthy Naija</h4>
-                    <p class="text-xs text-gray">Salads • Grilled fish</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURED RESTAURANTS -->
-    <section class="section bg-soft-cream">
-        <div class="container">
-            <div class="flex justify-between items-end mb-8">
-                <h2 class="text-3xl font-semibold">Featured in Abuja</h2>
-                <a href="#" onclick="navigateTo('restaurants')" class="text-warm-amber font-medium flex items-center gap-2">
-                    See all restaurants →
-                </a>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Restaurant Card 1 -->
-                <div class="restaurant-card card cursor-pointer" onclick="viewRestaurant(1)">
-                    <img src="https://picsum.photos/id/201/600/400" alt="Mama's Kitchen">
-                    <div class="p-4">
-                        <div class="flex justify-between">
-                            <h3 class="font-semibold">Mama's Kitchen</h3>
-                            <div class="flex items-center text-amber-500">⭐ 4.9</div>
-                        </div>
-                        <p class="text-sm text-gray">Nigerian • 15–25 min • ₦1,200 min</p>
-                        <div class="flex gap-2 mt-3">
-                            <span class="tag">Open now</span>
-                            <span class="tag">Free delivery</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Restaurant Card 2 -->
-                <div class="restaurant-card card cursor-pointer" onclick="viewRestaurant(2)">
-                    <img src="https://picsum.photos/id/870/600/400" alt="Suya Corner">
-                    <div class="p-4">
-                        <div class="flex justify-between">
-                            <h3 class="font-semibold">Suya Corner</h3>
-                            <div class="flex items-center text-amber-500">⭐ 4.8</div>
-                        </div>
-                        <p class="text-sm text-gray">Grills • 10–20 min • ₦800 min</p>
-                        <div class="flex gap-2 mt-3">
-                            <span class="tag">Trending</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Restaurant Card 3 -->
-                <div class="restaurant-card card cursor-pointer" onclick="viewRestaurant(3)">
-                    <img src="https://picsum.photos/id/292/600/400" alt="Jollof Express">
-                    <div class="p-4">
-                        <div class="flex justify-between">
-                            <h3 class="font-semibold">Jollof Express</h3>
-                            <div class="flex items-center text-amber-500">⭐ 4.7</div>
-                        </div>
-                        <p class="text-sm text-gray">Rice • 20–30 min • ₦1,500 min</p>
-                        <div class="flex gap-2 mt-3">
-                            <span class="tag">Flash deal • 20% off</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Restaurant Card 4 -->
-                <div class="restaurant-card card cursor-pointer" onclick="viewRestaurant(4)">
-                    <img src="https://picsum.photos/id/1016/600/400" alt="Green Bowl">
-                    <div class="p-4">
-                        <div class="flex justify-between">
-                            <h3 class="font-semibold">Green Bowl</h3>
-                            <div class="flex items-center text-amber-500">⭐ 4.9</div>
-                        </div>
-                        <p class="text-sm text-gray">Healthy • 25 min • ₦2,000 min</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section bg-white">
-        <div class="container text-center">
-            <h2 class="text-3xl font-semibold mb-4">How Delish works</h2>
-            <p class="max-w-md mx-auto text-gray mb-12">From craving to doorstep in under 30 minutes</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto bg-warm-amber rounded-3xl flex items-center justify-center text-4xl mb-6">🔎</div>
-                    <h3 class="font-semibold text-xl mb-2">1. Browse & Order</h3>
-                    <p class="text-gray">Choose from 200+ local restaurants and your favorite meals</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto bg-warm-amber rounded-3xl flex items-center justify-center text-4xl mb-6">🚀</div>
-                    <h3 class="font-semibold text-xl mb-2">2. Real-time Tracking</h3>
-                    <p class="text-gray">Watch your rider pick up and deliver your food live</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto bg-warm-amber rounded-3xl flex items-center justify-center text-4xl mb-6">⭐</div>
-                    <h3 class="font-semibold text-xl mb-2">3. Rate & Re-order</h3>
-                    <p class="text-gray">Rate the food (vs photo) and rider. One-tap re-order next time</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-deep-charcoal text-soft-cream py-16">
-        <div class="container">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
-                <div>
-                    <div class="logo text-3xl mb-6">🍲 Delish</div>
-                    <p class="text-soft-cream/70">Local food delivery in Abuja.<br>Made with love for Naija food lovers.</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Company</h4>
-                    <a href="#" class="block py-1 text-soft-cream/70 hover:text-warm-amber">About us</a>
-                    <a href="#" class="block py-1 text-soft-cream/70 hover:text-warm-amber">Careers</a>
-                    <a href="#" class="block py-1 text-soft-cream/70 hover:text-warm-amber">Blog</a>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">For Riders</h4>
-                    <a href="#" class="block py-1 text-soft-cream/70 hover:text-warm-amber">Become a rider</a>
-                    <a href="#" class="block py-1 text-soft-cream/70 hover:text-warm-amber">Delivery zones</a>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Get the app</h4>
-                    <div class="flex gap-3">
-                        <button class="bg-soft-cream text-deep-charcoal px-6 py-3 rounded-2xl text-sm font-medium">App Store</button>
-                        <button class="bg-soft-cream text-deep-charcoal px-6 py-3 rounded-2xl text-sm font-medium">Google Play</button>
-                    </div>
-                    <p class="text-xs text-soft-cream/60 mt-8">© 2026 Delish Abuja. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Simple Cart Sidebar (demo) -->
-    <div onclick="if(event.target.id==='cart-overlay')hideCart()" id="cart-overlay" class="hidden fixed inset-0 bg-black/70 z-[9999] flex justify-end">
-        <div onclick="event.stopImmediatePropagation()" class="bg-soft-cream w-full max-w-md h-full shadow-2xl translate-x-0 transition-transform duration-300 flex flex-col">
-            <div class="p-6 border-b flex justify-between items-center">
-                <h3 class="text-2xl font-semibold">Your Cart</h3>
-                <button onclick="hideCart()" class="text-3xl leading-none">×</button>
-            </div>
-            <div id="cart-items" class="flex-1 p-6 overflow-auto">
-                <!-- Populated by JS -->
-                <p class="text-gray text-center py-12">Your cart is empty.<br>Browse restaurants to get started!</p>
-            </div>
-            <div class="p-6 border-t">
-                <div class="flex justify-between mb-4">
-                    <span class="text-gray">Subtotal</span>
-                    <span id="cart-subtotal" class="font-semibold">₦0</span>
-                </div>
-                <button onclick="goToCheckout()" class="btn btn-primary w-full py-6 text-lg">
-                    Proceed to Checkout
-                </button>
-            </div>
-        </div>
+    <!-- Desktop Navigation -->
+    <div class="desktop-nav">
+      <a href="#" onclick="navigateTo('home')" class="nav-link">Home</a>
+      <a href="#" onclick="navigateTo('restaurants')" class="nav-link">Restaurants</a>
+      <a href="#" onclick="navigateTo('orders')" class="nav-link">Track Order</a>
+      <a href="#" onclick="navigateTo('support')" class="nav-link">Support</a>
     </div>
 
+    <!-- Right side actions -->
+    <div class="navbar-actions">
+
+      <!-- Location -->
+      <div class="location-badge">
+        📍 Abuja, FCT
+        <span onclick="changeLocation()">Change</span>
+      </div>
+
+      <!-- Cart -->
+      <button onclick="showCart()" class="cart-button">
+        🛒
+        <span id="cart-count" class="cart-count">3</span>
+      </button>
+
+      <!-- Account / Role Switcher (demo) -->
+      <div class="relative">
+        <button onclick="toggleAccountMenu()" class="account-button">
+          👤 Customer
+          <span class="text-xs">▼</span>
+        </button>
+
+        <!-- Dropdown -->
+        <div id="account-menu" class="hidden absolute right-0 mt-3 w-64 bg-soft-cream text-deep-charcoal shadow-xl rounded-3xl py-3 border border-muted-sage z-50">
+          <a onclick="switchRole('customer')" class="flex px-6 py-3 hover:bg-warm-amber hover:text-deep-charcoal items-center gap-3">👤 Customer Mode</a>
+          <a onclick="switchRole('seller')" class="flex px-6 py-3 hover:bg-warm-amber hover:text-deep-charcoal items-center gap-3">👨‍🍳 Restaurant Owner</a>
+          <a onclick="switchRole('moderator')" class="flex px-6 py-3 hover:bg-warm-amber hover:text-deep-charcoal items-center gap-3">🛡️ Moderator</a>
+        </div>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button onclick="toggleMobileMenu()" class="mobile-hamburger">
+        ☰
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <a href="#" onclick="navigateTo('home');toggleMobileMenu()" class="nav-link">Home</a>
+    <a href="#" onclick="navigateTo('restaurants');toggleMobileMenu()" class="nav-link">Restaurants</a>
+    <a href="#" onclick="navigateTo('orders');toggleMobileMenu()" class="nav-link">Track Order</a>
+    <a href="#" onclick="navigateTo('support');toggleMobileMenu()" class="nav-link">Support</a>
+  </div>
+</nav>
+
     <script>
-        // Basic interactivity for landing page
-        
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-        
-        function toggleRoleMenu() {
-            const menu = document.getElementById('role-menu');
-            menu.classList.toggle('hidden');
-        }
-        
-        function switchRole(role) {
-            document.querySelectorAll('#role-menu a').forEach(a => a.classList.remove('bg-warm-amber', 'text-deep-charcoal'));
-            alert(`✅ Switched to ${role.toUpperCase()} mode (demo)\n\nIn real app this would load the correct dashboard.`);
-            document.getElementById('role-menu').classList.add('hidden');
-            
-            // For demo: redirect to fake pages later
-            if (role === 'seller') {
-                window.location.href = '#seller-dashboard'; // placeholder
-            }
-        }
-        
-        function performSearch() {
-            const query = document.getElementById('hero-search').value.trim();
-            if (query) {
-                alert(`🔍 Searching for "${query}" in Abuja...\n\n(Next step: we will show filtered restaurant results)`);
-                // In real app: navigateTo('restaurants') + filter
-                navigateTo('restaurants');
-            }
-        }
-        
-        function filterByCategory(category) {
-            alert(`Showing ${category} restaurants near you 🍲\n\n(We’ll build the full browse page next)`);
-            navigateTo('restaurants');
-        }
-        
-        function viewRestaurant(id) {
-            alert(`Opening Restaurant #${id} detail page\n\n(Full restaurant page coming in next step)`);
-            // In full app this would open restaurant detail
-        }
-        
-        // Fake cart demo
-        let cart = [
-            { name: "Jollof Rice + Chicken", price: 3200, qty: 1 },
-            { name: "Suya Wrap", price: 1800, qty: 2 }
-        ];
-        
-        function showCart() {
-            const overlay = document.getElementById('cart-overlay');
-            const itemsContainer = document.getElementById('cart-items');
-            let html = '';
-            
-            cart.forEach((item, index) => {
-                html += `
-                <div class="flex justify-between items-center mb-6">
-                    <div>
-                        <p class="font-medium">${item.name}</p>
-                        <p class="text-sm text-gray">Qty: ${item.qty}</p>
-                    </div>
-                    <div class="text-right">
-                        <p class="font-semibold">₦${item.price * item.qty}</p>
-                        <button onclick="removeFromCart(${index});" class="text-red-500 text-xs mt-1">Remove</button>
-                    </div>
-                </div>`;
-            });
-            
-            if (cart.length === 0) {
-                html = `<p class="text-gray text-center py-12">Your cart is empty.<br>Browse restaurants to get started!</p>`;
-            }
-            
-            itemsContainer.innerHTML = html;
-            
-            const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
-            document.getElementById('cart-subtotal').textContent = `₦${subtotal}`;
-            
-            overlay.classList.remove('hidden');
-            overlay.style.display = 'flex';
-        }
-        
-        function hideCart() {
-            const overlay = document.getElementById('cart-overlay');
-            overlay.style.display = 'none';
-            overlay.classList.add('hidden');
-        }
-        
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            showCart(); // refresh
-        }
-        
-        function goToCheckout() {
-            hideCart();
-            alert("🛒 Going to Checkout page...\n\n(We will build this next after the landing page is approved)");
-        }
-        
-        // Simple navigation handler (for future SPA)
-        function navigateTo(page) {
-            if (page === 'restaurants') {
-                alert("📍 Navigating to Restaurants Browse page\n\n(Ready when you say “next” – I’ll give you the full restaurants HTML/JS)");
-            } else if (page === 'orders') {
-                alert("🚚 Track Order page coming next");
-            } else if (page === 'support') {
-                alert("🛟 Customer Support page coming next");
-            }
-            // In full SPA we would dynamically load sections here
-        }
-        
-        // Keyboard shortcut demo
-        console.log('%c✅ Delish landing page loaded successfully! Brand colors & typography 100% applied.', 'color:#F4B400; font-weight:600');
-    </script>
+  // Mobile menu
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('active');
+  }
+
+  // Account dropdown
+  function toggleAccountMenu() {
+    const menu = document.getElementById('account-menu');
+    menu.classList.toggle('hidden');
+  }
+
+  function switchRole(role) {
+    document.getElementById('account-menu').classList.add('hidden');
+    alert(`✅ Switched to ${role.toUpperCase()} dashboard (demo mode)\n\nNext: we’ll load the real seller/moderator view.`);
+    // Future: window.location = `/seller.html` etc.
+  }
+
+  // Placeholder navigation (will become real SPA router later)
+  function navigateTo(page) {
+    console.log(`Navigating to ${page} section...`);
+    // For now it logs – we’ll make it scroll to sections or load pages
+    if (page === 'home') window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Add more later
+  }
+
+  function changeLocation() {
+    const newLoc = prompt("Enter new location (demo):", "Abuja, FCT");
+    if (newLoc) alert(`📍 Location changed to ${newLoc}`);
+  }
+
+  function showCart() {
+    alert("🛒 Cart opened (we’ll build the full sidebar next)");
+  }
+</script>
 </body>
 </html>

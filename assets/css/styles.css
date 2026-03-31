@@ -76,251 +76,202 @@ p, span, label {
   font-size: 0.875rem;
   letter-spacing: 0.5px;
 }
-
-/* ==================== LAYOUT & UTILITIES ==================== */
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.section {
-  padding: 60px 0;
-}
-
-.flex {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.grid {
-  display: grid;
-  gap: 24px;
-}
-
-/* ==================== BUTTONS ==================== */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 28px;
-  border-radius: var(--radius);
-  font-weight: 600;
-  font-size: 1rem;
-  transition: var(--transition);
-  cursor: pointer;
-  border: none;
-  text-decoration: none;
-}
-
-.btn-primary {
-  background-color: var(--warm-amber);
-  color: var(--deep-charcoal);
-}
-
-.btn-primary:hover {
-  background-color: #e0a600;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(244, 180, 0, 0.3);
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: var(--deep-charcoal);
-  border: 2px solid var(--deep-charcoal);
-}
-
-.btn-secondary:hover {
-  background-color: var(--deep-charcoal);
-  color: var(--soft-cream);
-}
-
-.btn-outline {
-  background-color: transparent;
-  color: var(--warm-amber);
-  border: 2px solid var(--warm-amber);
-}
-
-.btn-outline:hover {
-  background-color: var(--warm-amber);
-  color: var(--deep-charcoal);
-}
-
-.btn-small {
-  padding: 10px 20px;
-  font-size: 0.9rem;
-}
-
-/* Icon buttons */
-.btn-icon {
-  width: 48px;
-  height: 48px;
-  padding: 0;
-  border-radius: 50%;
-  background-color: var(--soft-cream);
-  color: var(--deep-charcoal);
-  border: 2px solid var(--deep-charcoal);
-}
-
-/* ==================== CARDS & CONTAINERS ==================== */
-.card {
-  background-color: var(--soft-cream);
-  border-radius: var(--radius);
-  padding: 24px;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  border: 1px solid rgba(184, 194, 163, 0.15);
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(44, 44, 44, 0.15);
-}
-
-.restaurant-card,
-.food-card {
-  overflow: hidden;
-}
-
-.restaurant-card img,
-.food-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-
-/* ==================== NAVIGATION ==================== */
+/* ==================== NAVBAR ==================== */
 .navbar {
   background-color: var(--deep-charcoal);
   color: var(--soft-cream);
-  padding: 18px 0;
+  padding: 16px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.navbar .logo {
-  font-size: 1.75rem;
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.85rem;
   font-weight: 700;
   color: var(--warm-amber);
   display: flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
 }
 
-.nav-link {
+/* Desktop Nav */
+.desktop-nav {
+  display: none;
+  align-items: center;
+  gap: 32px;
+}
+
+.desktop-nav a {
   color: var(--soft-cream);
   text-decoration: none;
   font-weight: 500;
   transition: var(--transition);
 }
 
-.nav-link:hover {
+.desktop-nav a:hover {
   color: var(--warm-amber);
 }
 
-/* ==================== TAGS & BADGES ==================== */
-.tag {
-  display: inline-flex;
+/* Right side */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.location-badge {
+  background-color: var(--soft-cream);
+  color: var(--deep-charcoal);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 16px;
-  background-color: var(--muted-sage);
-  color: var(--deep-charcoal);
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-radius: 9999px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
-.status {
-  padding: 6px 14px;
-  border-radius: 9999px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
+.location-badge span {
+  color: var(--warm-amber);
+  cursor: pointer;
 }
 
-.status-preparing { background-color: #F4B400; color: #2C2C2C; }
-.status-ready { background-color: #B8C2A3; color: #2C2C2C; }
-.status-delivered { background-color: #2C2C2C; color: #FFF8E1; }
-
-/* ==================== FORMS & INPUTS ==================== */
-.input {
-  width: 100%;
-  padding: 16px 20px;
-  border: 2px solid var(--deep-charcoal);
-  border-radius: var(--radius);
+/* Cart */
+.cart-button {
+  position: relative;
+  width: 48px;
+  height: 48px;
   background-color: var(--soft-cream);
-  font-size: 1rem;
+  color: var(--deep-charcoal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
   transition: var(--transition);
 }
 
-.input:focus {
-  outline: none;
-  border-color: var(--warm-amber);
-  box-shadow: 0 0 0 4px rgba(244, 180, 0, 0.2);
+.cart-button:hover {
+  transform: scale(1.1);
 }
 
-/* ==================== MODALS & OVERLAYS ==================== */
-.modal {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(44, 44, 44, 0.75);
-  display: none;
+.cart-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: var(--warm-amber);
+  color: var(--deep-charcoal);
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2000;
 }
 
-.modal-content {
-  background-color: var(--soft-cream);
-  border-radius: var(--radius);
-  max-width: 500px;
-  width: 90%;
-  padding: 32px;
-  box-shadow: var(--shadow);
+/* Account / Role Switcher */
+.account-button {
+  background-color: transparent;
+  color: var(--soft-cream);
+  border: 2px solid var(--soft-cream);
+  padding: 8px 20px;
+  border-radius: 9999px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
 }
 
-/* ==================== RESPONSIVE ==================== */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 16px;
-  }
-  
-  h1 { font-size: 2rem; }
-  .section { padding: 40px 0; }
-  
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ==================== HELPER CLASSES ==================== */
-.text-amber { color: var(--warm-amber); }
-.text-charcoal { color: var(--deep-charcoal); }
-.bg-cream { background-color: var(--soft-cream); }
-.bg-charcoal { background-color: var(--deep-charcoal); color: var(--soft-cream); }
-
-.mt-1 { margin-top: 8px; }
-.mt-2 { margin-top: 16px; }
-.mt-3 { margin-top: 24px; }
-
-.text-center { text-align: center; }
-.text-right { text-align: right; }
-
-/* Scrollbar styling (nice touch for food app) */
-::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
+.account-button:hover {
   background-color: var(--warm-amber);
-  border-radius: 20px;
+  color: var(--deep-charcoal);
+  border-color: var(--warm-amber);
+}
+
+/* Mobile Hamburger */
+.mobile-hamburger {
+  display: block;
+  width: 48px;
+  height: 48px;
+  background: none;
+  border: none;
+  color: var(--soft-cream);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 73px; /* navbar height */
+  left: 0;
+  right: 0;
+  background-color: var(--deep-charcoal);
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu.active {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 16px 0;
+  color: var(--soft-cream);
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(255,248,225,0.15);
+}
+
+.mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+  }
+  .mobile-hamburger,
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* Extra polish */
+.navbar a.active {
+  color: var(--warm-amber);
+  position: relative;
+}
+
+.navbar a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--warm-amber);
+  border-radius: 3px;
 }

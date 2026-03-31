@@ -1,0 +1,326 @@
+/* =============================================
+   styles.css - Delish Dispatch
+   =============================================
+   Brand Guidelines:
+   • Primary: Warm Amber (#F4B400) + Deep Charcoal (#2C2C2C)
+   • Secondary: Soft Cream (#FFF8E1) + Muted Sage (#B8C2A3)
+   • Balance: 60% Deep Charcoal/Soft Cream • 30% Warm Amber • 10% Muted Sage
+   • Typography: Inter (primary) + Roboto Mono (secondary)
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ==================== BRAND COLORS ==================== */
+  --warm-amber: #F4B400;           /* 30% - CTAs, highlights, accents */
+  --deep-charcoal: #2C2C2C;        /* 60% - Text, headers, dark UI */
+  --soft-cream: #FFF8E1;           /* 60% - Backgrounds, cards, light areas */
+  --muted-sage: #B8C2A3;           /* 10% - Fresh tags, success, nature accents */
+
+  /* Neutral shades for flexibility */
+  --white: #FFFFFF;
+  --light-gray: #F5F5F5;
+  --gray: #666666;
+
+  /* Typography */
+  --font-primary: 'Inter', system-ui, sans-serif;
+  --font-secondary: 'Roboto Mono', monospace;
+
+  /* Spacing & Sizing */
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(44, 44, 44, 0.12);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== RESET & BASE ==================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--soft-cream);
+  color: var(--deep-charcoal);
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* ==================== TYPOGRAPHY ==================== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--deep-charcoal);
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.875rem; }
+h3 { font-size: 1.5rem; }
+
+p, span, label {
+  font-size: 1rem;
+}
+
+.small-text {
+  font-size: 0.875rem;
+  color: var(--gray);
+}
+
+/* Monospace for tech elements */
+.mono {
+  font-family: var(--font-secondary);
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+}
+
+/* ==================== LAYOUT & UTILITIES ==================== */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 60px 0;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+/* ==================== BUTTONS ==================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--warm-amber);
+  color: var(--deep-charcoal);
+}
+
+.btn-primary:hover {
+  background-color: #e0a600;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(244, 180, 0, 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--deep-charcoal);
+  border: 2px solid var(--deep-charcoal);
+}
+
+.btn-secondary:hover {
+  background-color: var(--deep-charcoal);
+  color: var(--soft-cream);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--warm-amber);
+  border: 2px solid var(--warm-amber);
+}
+
+.btn-outline:hover {
+  background-color: var(--warm-amber);
+  color: var(--deep-charcoal);
+}
+
+.btn-small {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+/* Icon buttons */
+.btn-icon {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--soft-cream);
+  color: var(--deep-charcoal);
+  border: 2px solid var(--deep-charcoal);
+}
+
+/* ==================== CARDS & CONTAINERS ==================== */
+.card {
+  background-color: var(--soft-cream);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid rgba(184, 194, 163, 0.15);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(44, 44, 44, 0.15);
+}
+
+.restaurant-card,
+.food-card {
+  overflow: hidden;
+}
+
+.restaurant-card img,
+.food-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+/* ==================== NAVIGATION ==================== */
+.navbar {
+  background-color: var(--deep-charcoal);
+  color: var(--soft-cream);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--warm-amber);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  color: var(--soft-cream);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--warm-amber);
+}
+
+/* ==================== TAGS & BADGES ==================== */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  background-color: var(--muted-sage);
+  color: var(--deep-charcoal);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status {
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-preparing { background-color: #F4B400; color: #2C2C2C; }
+.status-ready { background-color: #B8C2A3; color: #2C2C2C; }
+.status-delivered { background-color: #2C2C2C; color: #FFF8E1; }
+
+/* ==================== FORMS & INPUTS ==================== */
+.input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid var(--deep-charcoal);
+  border-radius: var(--radius);
+  background-color: var(--soft-cream);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--warm-amber);
+  box-shadow: 0 0 0 4px rgba(244, 180, 0, 0.2);
+}
+
+/* ==================== MODALS & OVERLAYS ==================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(44, 44, 44, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background-color: var(--soft-cream);
+  border-radius: var(--radius);
+  max-width: 500px;
+  width: 90%;
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  h1 { font-size: 2rem; }
+  .section { padding: 40px 0; }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== HELPER CLASSES ==================== */
+.text-amber { color: var(--warm-amber); }
+.text-charcoal { color: var(--deep-charcoal); }
+.bg-cream { background-color: var(--soft-cream); }
+.bg-charcoal { background-color: var(--deep-charcoal); color: var(--soft-cream); }
+
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Scrollbar styling (nice touch for food app) */
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--warm-amber);
+  border-radius: 20px;
+}

@@ -1,0 +1,17 @@
+:root {
+  /* Brand Colors */
+  --primary-amber: #F4B400;
+  --deep-charcoal: #2C2C2C;
+  --soft-cream: #FFF8E1;
+  --muted-sage: #B8C2A3;
+  
+  /* Typography */
+  --font-primary: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+}
+       
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#F4B400" />
+    <meta name="description" content="Delish - Order from your favorite local restaurants">
+    <link rel="apple-touch-icon" href="assets/icons/icon-196.png">
+    <title>Delish • Discover</title>
+    <link rel="stylesheet" href="assets/css/user-home.css" />
+    <!-- Google Fonts: Inter + Roboto Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- TOP HEADER -->
+    <header>
+        <div class="top-nav">
+            <!-- Logo -->
+            <div class="logo">Delish</div>
+            
+            <!-- Search Bar -->
+            <div class="search-bar">
+                🔎
+                <input type="text" placeholder="Search restaurants or dishes..." id="search-input">
+            </div>
+            
+            <!-- Location -->
+            <div class="location-pill">
+                📍 Abuja, FCT
+            </div>
+            
+            <!-- Header Icons -->
+            <div class="header-icons">
+                <!-- Cart (hidden on mobile) -->
+                <div class="cart-icon" style="font-size: 26px; cursor: pointer; position: relative;">
+                    🛒
+                    <span style="position: absolute; top: -6px; right: -6px; background: #F4B400; color: #2C2C2C; font-size: 10px; font-family: var(--font-mono); width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">3</span>
+                </div>
+                
+                <!-- Notification Bell (always visible) -->
+                <div class="notification-btn">
+                    🛎️
+                    <span class="badge">2</span>
+                </div>
+                
+                <!-- User Avatar (hidden on mobile) -->
+                <div class="avatar" style="width: 36px; height: 36px; background: #ddd; border-radius: 50%; overflow: hidden; cursor: pointer;">
+                    👤
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- HERO / WELCOME BANNER -->
+        <section class="hero">
+            <div class="hero-content">
+                <p class="greeting">Good afternoon, Alex! 👋</p>
+                <h1 style="font-size: 32px; font-weight: 700; line-height: 1.1; margin-bottom: 12px;">
+                    What are you<br>craving today?
+                </h1>
+                <button class="hero-button" onclick="alert('Redirecting to all restaurants (placeholder)')">
+                    Browse All Restaurants →
+                </button>
+                
+                <!-- Small flash promo strip -->
+                <div style="margin-top: 28px; background: rgba(255,255,255,0.2); border-radius: 50px; padding: 10px 20px; display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600;">
+                    🔥 DELISH30 • 30% off your first order
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIES -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">What are you in the mood for?</h2>
+            </div>
+            <div class="categories-scroll">
+                <!-- Will be populated by JS later, but here are skeleton cards -->
+                <div class="category-card"><span class="emoji">🍚</span><div>Nigerian</div></div>
+                <div class="category-card"><span class="emoji">🍕</span><div>Pizza</div></div>
+                <div class="category-card"><span class="emoji">🍔</span><div>Burgers</div></div>
+                <div class="category-card"><span class="emoji">🌯</span><div>Shawarma</div></div>
+                <div class="category-card"><span class="emoji">🍲</span><div>Local Soups</div></div>
+                <div class="category-card"><span class="emoji">🥗</span><div>Healthy</div></div>
+                <div class="category-card"><span class="emoji">🍦</span><div>Desserts</div></div>
+                <div class="category-card"><span class="emoji">🥤</span><div>Drinks</div></div>
+            </div>
+        </section>
+
+        <!-- FLASH DEALS -->
+        <section class="section">
+            <div class="flash-deals">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                    <span style="font-size: 28px;">🔥</span>
+                    <h2 style="font-size: 22px; font-weight: 700;">Limited Time Flash Deals</h2>
+                </div>
+                <p style="font-size: 15px; opacity: 0.9;">4 restaurants near you • Ends in <strong id="countdown">2h 14m</strong></p>
+                <!-- Placeholder cards will go here via JS later -->
+                <div style="margin-top: 16px; display: flex; gap: 12px; overflow-x: auto;">
+                    <div style="background: white; border-radius: 16px; padding: 12px; min-width: 220px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Buy 1 Get 1 Free • Chicken & Chips</div>
+                    <div style="background: white; border-radius: 16px; padding: 12px; min-width: 220px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">30% OFF Jollof Rice Bowls</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEAR YOU RESTAURANTS -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Restaurants near you in Abuja</h2>
+                <a href="#" class="see-all">See all →</a>
+            </div>
+            <div class="restaurants-grid">
+                <!-- Skeleton restaurant cards -->
+                <div class="restaurant-card">
+                    <div class="restaurant-image" style="background-image: url('https://picsum.photos/id/1015/600/400');"></div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Mama’s Kitchen</div>
+                        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+                            <span class="stars">★★★★☆</span>
+                            <span style="font-size: 14px;">(124)</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 14px;">
+                            <span>25–35 min</span>
+                            <span style="color: var(--muted-sage);">• Free delivery</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="restaurant-card">
+                    <div class="restaurant-image" style="background-image: url('https://picsum.photos/id/201/600/400');"></div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Abuja Shawarma Hub</div>
+                        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+                            <span class="stars">★★★★★</span>
+                            <span style="font-size: 14px;">(89)</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 14px;">
+                            <span>15–25 min</span>
+                            <span style="color: var(--muted-sage);">• ₦300 delivery</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- More cards can be added here -->
+            </div>
+        </section>
+
+        <!-- POPULAR ITEMS -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Popular this week</h2>
+            </div>
+            <div class="popular-scroll">
+                <!-- Skeleton popular cards -->
+                <div class="popular-card">
+                    <div style="height: 120px; background: #ddd; background-image: url('https://picsum.photos/id/292/600/400'); background-size: cover;"></div>
+                    <div style="padding: 12px;">
+                        <div style="font-weight: 600;">Jollof Rice & Chicken</div>
+                        <div style="font-size: 13px; color: #666;">Mama’s Kitchen • ₦2,800</div>
+                        <button style="margin-top: 10px; width: 100%; background: var(--primary-amber); border: none; padding: 10px; border-radius: 50px; font-weight: 600;">Add to cart</button>
+                    </div>
+                </div>
+                <!-- Repeat for more items -->
+            </div>
+        </section>
+
+        <!-- RECOMMENDED FOR YOU -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Recommended for you</h2>
+            </div>
+            <div class="restaurants-grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
+                <!-- Similar card style as restaurants but with “Based on your last order” badge -->
+                <div class="restaurant-card" style="position: relative;">
+                    <div class="restaurant-image" style="background-image: url('https://picsum.photos/id/870/600/400');"></div>
+                    <div style="position: absolute; top: 12px; left: 12px; background: var(--muted-sage); color: white; font-size: 12px; padding: 2px 10px; border-radius: 50px;">Based on your orders</div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">The Grill House</div>
+                        <p style="font-size: 14px; color: #666;">Peppered Snails • Grilled Fish</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <span>🏠</span>
+            Home
+        </a>
+        <a href="#" class="nav-item">
+            <span>📦</span>
+            Orders
+        </a>
+        <a href="#" class="nav-item">
+            <span>🛒</span>
+            Cart
+            <span style="position: absolute; top: 8px; right: 38px; background: var(--primary-amber); color: var(--deep-charcoal); font-size: 10px; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono);">3</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span>👤</span>
+            Profile
+        </a>
+    </nav>
+
+    <!-- Tiny JS for demo countdown (optional) -->
+    <script>
+        // Simple countdown for flash deal (demo only)
+        let timeLeft = 2 * 60 * 60 + 14 * 60; // 2h 14m in seconds
+        const countdownEl = document.getElementById('countdown');
+        
+        setInterval(() => {
+            if (timeLeft <= 0) return;
+            timeLeft--;
+            const hours = Math.floor(timeLeft / 3600);
+            const minutes = Math.floor((timeLeft % 3600) / 60);
+            countdownEl.textContent = `${hours}h ${minutes}m`;
+        }, 60000);
+        
+        console.log('%c✅ Delish Home Page Skeleton Ready!', 'color:#F4B400; font-size:16px; font-weight:700');
+        console.log('Next: We can add real JS data + interactivity or move to the next section (Categories with real data).');
+    </script>
+</body>
+</html>

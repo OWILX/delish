@@ -14,52 +14,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="header">
-  <div class="top-nav">
+<!-- IMPROVED HEADER -->
+<header>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <!-- Left: Location -->
+            <div class="location-dropdown">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <span class="location-name">Abuja, FCT</span>
+                    <span class="location-distance">• 2.4 km</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
 
-    <!-- Logo -->
-    <div class="logo">
-      <img src="../assets/images/logo-512.png" alt="Delish Logo" class="app-logo">
+            <!-- Right: Icons -->
+            <div class="header-actions">
+                <!-- Message / Notification -->
+                <div class="icon-btn notification-btn">
+                    <i class="fas fa-envelope"></i>
+                    <span class="badge">3</span>
+                </div>
+                
+                <!-- Cart -->
+                <div class="icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge">3</span>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Search Bar -->
-    <div class="search-bar">
-      <span class="search-icon">🔎</span>
-      <input 
-        type="text" 
-        placeholder="Search restaurants or dishes..." 
-        id="search-input"
-      >
+    <!-- Search Bar Row -->
+    <div class="search-row">
+        <div class="search-container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" 
+                       placeholder="Search restaurants, dishes, or cuisines...">
+                <button class="filter-btn">
+                    <i class="fas fa-sliders-h"></i>
+                </button>
+            </div>
+        </div>
     </div>
-
-    <!-- Location -->
-    <div class="location-pill">
-      <span class="location-icon">📍</span>
-      <span>Abuja, FCT</span>
-    </div>
-
-    <!-- Header Icons -->
-    <div class="header-icons">
-
-      <!-- Cart -->
-      <button class="icon-btn cart-btn" aria-label="Cart">
-        🛒
-        <span class="badge">3</span>
-      </button>
-
-      <!-- Notifications -->
-      <button class="icon-btn notification-btn" aria-label="Notifications">
-        🛎️
-        <span class="badge">2</span>
-      </button>
-
-      <!-- Avatar -->
-      <div class="avatar" title="Profile">
-        👤
-      </div>
-
-    </div>
-  </div>
 </header>
     
     <main class="container">

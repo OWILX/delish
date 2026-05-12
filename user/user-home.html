@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#F4B400" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Delish - Order from your favorite local restaurants">
     <link rel="apple-touch-icon" href="../assets/icons/icon-196.png">
     <title>Delish • Discover</title>
     <link rel="stylesheet" href="../assets/css/user-home.css" />
-    <!-- Google Fonts: Inter + Roboto Mono -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 </head>
 <body>
@@ -195,25 +197,31 @@
     </main>
 
     <!-- MOBILE BOTTOM NAVIGATION -->
-    <nav class="bottom-nav">
-        <a href="#" class="nav-item active">
-            <span>🏠</span>
-            Home
-        </a>
-        <a href="#" class="nav-item">
-            <span>📦</span>
-            Orders
-        </a>
-        <a href="#" class="nav-item">
-            <span>🛒</span>
-            Cart
-            <span style="position: absolute; top: 8px; right: 38px; background: var(--primary-amber); color: var(--deep-charcoal); font-size: 10px; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono);">3</span>
-        </a>
-        <a href="#" class="nav-item">
-            <span>👤</span>
-            Profile
-        </a>
-    </nav>
+    <footer class="bottom-nav">
+        <nav class="nav-bar" aria-label="Main navigation">
+            <a href="#" class="nav-item active" aria-current="page">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-utensils"></i>
+                <span>Restaurants</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-bag-shopping"></i>
+                <span>Orders</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-tag"></i>
+                <span>Offers</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </footer>
+    
 
     <!-- Tiny JS for demo countdown (optional) -->
     <script>

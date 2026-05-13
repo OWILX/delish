@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0", maximum-scale=1.0, user-scalable=no" />
+    <title>Delish • Restaurants Detail</title>
+    
+    <link rel="stylesheet" href="../assets/css/user-restaurants.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="top-bar-content">
+            <div class="location-dropdown">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <span class="location-name">Abuja, FCT</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            
+            <div class="header-actions">
+                <div class="icon-btn"><i class="fas fa-envelope"></i><span class="badge">3</span></div>
+                <div class="icon-btn"><i class="fas fa-shopping-cart"></i><span class="badge">2</span></div>
+            </div>
+        </div>
+
+        <div class="search-row">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Search restaurants or dishes...">
+                <button class="filter-btn"><i class="fas fa-sliders-h"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- RESTAURANT HERO -->
+    <div class="restaurant-hero" style="background-image: url('https://picsum.photos/id/1015/1200/600');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="restaurant-name">Mama’s Kitchen</div>
+            <div class="restaurant-meta">
+                <div class="rating">
+                    <i class="fas fa-star" style="color: #F4B400;"></i>
+                    4.8 <span style="font-weight: normal; opacity: 0.9;">(342)</span>
+                </div>
+                <div>25–35 min</div>
+                <div>Free delivery</div>
+            </div>
+        </div>
+    </div>
+
+    <main class="menu-section">
+        
+        <!-- Menu Tabs -->
+        <div class="menu-tabs">
+            <div class="tab active" onclick="switchTab(this)">All</div>
+            <div class="tab" onclick="switchTab(this)">Nigerian Classics</div>
+            <div class="tab" onclick="switchTab(this)">Soups &amp; Stews</div>
+            <div class="tab" onclick="switchTab(this)">Sides</div>
+            <div class="tab" onclick="switchTab(this)">Drinks</div>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="menu-grid" id="menu-grid">
+            <!-- Populated by JS -->
+        </div>
+    </main>
+
+    <!-- Restaurant Info -->
+    <div class="info-section">
+        <h3 class="info-title">About this restaurant</h3>
+        <p style="color: #444; margin-bottom: 16px;">
+            Famous for authentic Nigerian home-cooked meals. All ingredients are fresh and locally sourced. 
+            Specialties include Jollof Rice, Egusi Soup, and Peppered Chicken.
+        </p>
+        
+        <h3 class="info-title" style="margin-top: 24px;">Opening Hours</h3>
+        <p><strong>Today:</strong> 10:00 AM - 10:00 PM</p>
+    </div>
+
+    <!-- Floating Cart Button -->
+    <div class="floating-cart" id="floating-cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span>View Cart • <strong>₦8,400</strong> (<span id="cart-count">3</span> items)</span>
+    </div>
+
+<footer class="bottom-nav">
+        <nav class="nav-bar">
+            <a href="user-home.html" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="user-restaurants.html" class="nav-item active"><i class="fas fa-utensils"></i><span>Restaurants</span></a>
+            <a href="#" class="nav-item"><i class="fas fa-bag-shopping"></i><span>Orders</span></a>
+            <a href="#" class="nav-item"><i class="fas fa-tag"></i><span>Offers</span></a>
+            <a href="#" class="nav-item"><i class="fas fa-user"></i><span>Profile</span></a>
+        </nav>
+    </footer>
+
+    <script>
+        // Sample Menu Items
+        const menuItems = [
+            {
+                id: 1,
+                name: "Classic Jollof Rice & Chicken",
+                desc: "Smoky jollof rice served with grilled chicken, plantain and salad",
+                price: 2800,
+                image: "https://picsum.photos/id/292/600/400"
+            },
+            {
+                id: 2,
+                name: "Egusi Soup with Pounded Yam",
+                desc: "Rich egusi soup with assorted meat, fish and vegetables",
+                price: 3200,
+                image: "https://picsum.photos/id/431/600/400"
+            },
+            {
+                id: 3,
+                name: "Peppered Turkey",
+                desc: "Spicy grilled turkey with yam and special pepper sauce",
+                price: 4500,
+                image: "https://picsum.photos/id/870/600/400"
+            },
+            {
+                id: 4,
+                name: "Fried Rice & Beef",
+                desc: "Nigerian style fried rice with tender beef and coleslaw",
+                price: 2600,
+                image: "https://picsum.photos/id/201/600/400"
+            }
+        ];
+
+        // Render Menu
+        function renderMenu(items) {
+            const container = document.getElementById('menu-grid');
+            container.innerHTML = '';
+            
+            items.forEach(item => {
+                const html = `
+                    <div class="menu-item">
+                        <div class="menu-item-image" style="background-image: url('${item.image}')"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-name">${item.name}</div>
+                            <div class="menu-item-desc">${item.desc}</div>
+                            <div class="menu-item-price">₦${item.price.toLocaleString()}</div>
+                            <button class="add-btn" onclick="addToCart(${item.id})">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+        }
+
+        // Tab Switching (Demo)
+        function switchTab(el) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            el.classList.add('active');
+            // In real app: filter menu items by category
+        }
+
+        // Add to Cart
+        function addToCart(id) {
+            alert(`✅ Added item ${id} to cart!`);
+            const cart = document.getElementById('floating-cart');
+            cart.style.display = 'flex';
+        }
+
+        // Initialize
+        renderMenu(menuItems);
+    </script>
+</body>
+</html>

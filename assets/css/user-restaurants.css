@@ -22,10 +22,25 @@
     padding: 0 16px 16px;
     display: flex;
     gap: 12px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;  /* Prevents wrapping */
+    overflow-x: auto;   /* Enables horizontal scroll */
+    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+    scrollbar-width: thin;      /* Optional: thinner scrollbar (Firefox) */
     align-items: center;
 }
 
+/* Optional: hide scrollbar for cleaner look (comment out if you want visible scrollbar) */
+.filters-bar::-webkit-scrollbar {
+    height: 4px;
+}
+.filters-bar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+.filters-bar::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
 .sort-select {
     padding: 10px 16px;
     border: 2px solid #ddd;
@@ -50,6 +65,11 @@
     font-weight: 600;
 }
 
+/* Keep chips from shrinking */
+.sort-select,
+.chip {
+    flex-shrink: 0;
+}
 /* Restaurant Grid */
 .restaurants-grid {
     max-width: 1280px;
@@ -119,4 +139,171 @@
 .delivery-time {
     color: var(--muted-sage);
     font-weight: 500;
+}
+
+/* ==================== RESTAURANT HERO ==================== */
+.restaurant-hero {
+    height: 260px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(44,44,44,0.85));
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px 16px;
+    z-index: 2;
+}
+
+.restaurant-name {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.restaurant-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 15px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+}
+
+/* Menu Section */
+.menu-section {
+    padding: 20px 16px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.menu-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    scrollbar-width: none;
+}
+
+.tab {
+    padding: 10px 20px;
+    background: white;
+    border-radius: 50px;
+    white-space: nowrap;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab.active {
+    background: var(--primary-amber);
+    color: var(--deep-charcoal);
+    font-weight: 600;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.menu-item {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+}
+
+.menu-item-image {
+    width: 110px;
+    height: 110px;
+    background-size: cover;
+    background-position: center;
+}
+
+.menu-item-content {
+    flex: 1;
+    padding: 14px;
+}
+
+.menu-item-name {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.menu-item-desc {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.menu-item-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-amber);
+}
+
+.add-btn {
+    background: var(--primary-amber);
+    color: var(--deep-charcoal);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+/* Info Section */
+.info-section {
+    background: white;
+    margin: 24px 16px;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.info-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.floating-cart {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-amber);
+    color: var(--deep-charcoal);
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(244, 180, 0, 0.4);
+    display: none;
+    align-items: center;
+    gap: 12px;
+    z-index: 1050;
 }

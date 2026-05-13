@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0", maximum-scale=1.0, user-scalable=no" />
+    <title>Delish • Restaurants</title>
+    
+    <link rel="stylesheet" href="../assets/css/user-restaurants.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="top-bar-content">
+            <div class="location-dropdown">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <span class="location-name">Abuja, FCT</span>
+                    <span class="location-distance">• 2.4 km</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            
+            <div class="header-actions">
+                <div class="icon-btn"><i class="fas fa-envelope"></i><span class="badge">3</span></div>
+                <div class="icon-btn"><i class="fas fa-shopping-cart"></i><span class="badge">2</span></div>
+            </div>
+        </div>
+
+        <div class="search-row">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Search restaurants or dishes...">
+                <button class="filter-btn"><i class="fas fa-sliders-h"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">Top Restaurants Near You</h1>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-bar">
+            <select class="sort-select" id="sort-select">
+                <option value="recommended">Recommended</option>
+                <option value="rating">Highest Rated</option>
+                <option value="fastest">Fastest Delivery</option>
+                <option value="popular">Most Popular</option>
+            </select>
+            
+            <div class="chip active">All</div>
+            <div class="chip">Nigerian</div>
+            <div class="chip">Pizza</div>
+            <div class="chip">Shawarma</div>
+            <div class="chip">Grills</div>
+        </div>
+
+        <!-- Restaurants Grid -->
+        <div class="restaurants-grid" id="restaurants-grid">
+            <!-- Populated by JS below -->
+        </div>
+    </main>
+
+    <!-- BOTTOM NAV -->
+    <footer class="bottom-nav">
+        <nav class="nav-bar">
+            <a href="user-home.html" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="#" class="nav-item active"><i class="fas fa-utensils"></i><span>Restaurants</span></a>
+            <a href="#" class="nav-item"><i class="fas fa-bag-shopping"></i><span>Orders</span></a>
+            <a href="#" class="nav-item"><i class="fas fa-tag"></i><span>Offers</span></a>
+            <a href="#" class="nav-item"><i class="fas fa-user"></i><span>Profile</span></a>
+        </nav>
+    </footer>
+
+    <script>
+        // Sample Restaurant Data
+        const restaurants = [
+            {
+                id: 1,
+                name: "Mama’s Kitchen",
+                image: "https://picsum.photos/id/1015/600/400",
+                rating: 4.8,
+                reviews: 342,
+                cuisines: "Nigerian • Local Delicacies",
+                time: "25-35 min",
+                delivery: "Free"
+            },
+            {
+                id: 2,
+                name: "Abuja Shawarma Hub",
+                image: "https://picsum.photos/id/201/600/400",
+                rating: 4.9,
+                reviews: 289,
+                cuisines: "Shawarma • Grills • Burgers",
+                time: "15-25 min",
+                delivery: "₦300"
+            },
+            {
+                id: 3,
+                name: "Pizza Palace",
+                image: "https://picsum.photos/id/292/600/400",
+                rating: 4.6,
+                reviews: 187,
+                cuisines: "Pizza • Italian • Pasta",
+                time: "30-40 min",
+                delivery: "Free"
+            },
+            {
+                id: 4,
+                name: "The Grill House",
+                image: "https://picsum.photos/id/870/600/400",
+                rating: 4.7,
+                reviews: 421,
+                cuisines: "Grills • Pepper Soup • Fish",
+                time: "20-30 min",
+                delivery: "₦250"
+            }
+        ];
+
+        // Render Restaurants
+        function renderRestaurants(data) {
+            const grid = document.getElementById('restaurants-grid');
+            grid.innerHTML = '';
+            
+            data.forEach(r => {
+                const card = `
+                    <div class="restaurant-card" onclick="viewRestaurant(${r.id})">
+                        <div class="restaurant-image" style="background-image: url('${r.image}')">
+                            <div class="rating-badge">
+                                <i class="fas fa-star" style="color:#F4B400"></i> ${r.rating}
+                            </div>
+                        </div>
+                        <div class="restaurant-info">
+                            <div class="restaurant-name">${r.name}</div>
+                            <div class="cuisines">${r.cuisines}</div>
+                            <div class="meta">
+                                <span class="delivery-time">${r.time}</span>
+                                <span>${r.delivery} delivery</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        // View Restaurant Detail (placeholder)
+        function viewRestaurant(id) {
+            alert(`Opening details for restaurant ID: ${id} (Next: We will create user-restaurant-detail.html)`);
+            // window.location.href = `user-restaurant-detail.html?id=${id}`;
+        }
+
+        // Initialize
+        renderRestaurants(restaurants);
+        
+        // Search functionality
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const filtered = restaurants.filter(r => 
+                r.name.toLowerCase().includes(term) || 
+                r.cuisines.toLowerCase().includes(term)
+            );
+            renderRestaurants(filtered);
+        });
+    </script>
+</body>
+</html>

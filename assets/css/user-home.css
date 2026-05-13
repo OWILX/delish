@@ -1,14 +1,6 @@
 @import "style.css";
 
-/* 
-   EXTENDED TOKENS (layered on style.css)
- */
-
 body {
-  font-family: var(--font-display);
-  background: var(--soft-cream);
-  color: var(--deep-charcoal);
-  overflow-x: hidden;
   padding-bottom: calc(var(--bottom-nav-h) + var(--safe-bottom));
   -webkit-font-smoothing: antialiased;
 }
@@ -30,9 +22,7 @@ img, div[style*="background-image"] { display: block; }
 .section:nth-child(6) { animation: fadeUp var(--t-slow) var(--ease) 0.36s both; }
 
 
-/* 
-   HEADER
- */
+/* HEADER*/
 .header {
   position: sticky;
   top: 0;
